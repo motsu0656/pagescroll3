@@ -1,0 +1,74 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.pc{
+  text-align: center;
+}
+
+.content {
+  padding: 100px;
+  background-color: #f4f4f4;
+  text-align: center;
+}
+
+.content-top{
+  height: 100vh;
+}
+
+.works-section {
+  padding: 100px 20px;
+  background-color: #fff;
+  text-align: center;
+}
+
+.works-item {
+  margin: 50px 0;
+  width: 80%;
+  max-width: 800px;
+  margin: 50px auto;
+  position: relative;
+  overflow: hidden; /* オーバーフローで画像が枠外に出ないようにする */
+  transition: transform 0.3s ease-out; /* 全体の拡大・縮小アニメーション */
+  transform: scale(1); /* 初期状態でスケールは1 */
+}
+
+.works-title {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #333;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translate(0, -50%); /* 初期位置: 左端 */
+  transition: transform 0.5s ease-out; /* スクロールで中央に移動するアニメーション */
+  z-index: 10; /* 画像の上に表示 */
+  background-color: white; /* 視認性を確保するための背景 */
+  padding: 10px 20px; /* タイトルの周りに余白を追加 */
+}
+
+/* 画像 */
+.works-image {
+  width: 100%;
+  height: auto;
+  transition: transform 0.3s ease-out; /* 画像の拡大 */
+  transform: scale(1); /* 初期状態でスケールは1 */
+  display: block;
+}
+
+/* スクロールで表示されたときのアクション */
+.works-item.active {
+  transform: scale(0.95); /* 表示領域を縮小 */
+}
+
+.works-item.active .works-image {
+  transform: scale(1.1); /* 画像を拡大 */
+}
+
+.works-item.active .works-title {
+  transform: translate(-50%, -50%); /* スクロール時に中央に移動 */
+  left: 50%; /* 中央に */
+}
