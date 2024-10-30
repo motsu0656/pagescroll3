@@ -1,17 +1,21 @@
-window.addEventListener('scroll', () => {
-  const worksItems = document.querySelectorAll('.works-item');
-  const triggerBottom = window.innerHeight * 0.8; // 画面下から80%の位置でアニメーションを発動
+// 全てのworks-item要素を取得
+const worksItems = document.querySelectorAll('.works-item');
 
-  worksItems.forEach(item => {
-    const itemTop = item.getBoundingClientRect().top;
-    const itemBottom = item.getBoundingClientRect().bottom;
-
-    if (itemTop < triggerBottom && itemBottom > 0) {
-      // 要素がスクロールで見えたらactiveクラスを追加
-      item.classList.add('active');
+// Intersection Observerを設定
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    // 表示範囲に入った場合
+    if (entry.isIntersecting) {
+      entry.target.classList.add('active'); // activeクラスを追加
     } else {
-      // 要素が表示領域から外れたらactiveクラスを削除
-      item.classList.remove('active');
+      entry.target.classList.remove('active'); // 表示範囲を外れるとクラスを削除
     }
   });
+}, {
+  threshold: 0.5 // 50%が表示されたらアクションを実行
+});
+
+// 各works-item要素を監視
+worksItems.forEach(item => {
+  observer.observe(item);
 });

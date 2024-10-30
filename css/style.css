@@ -42,12 +42,17 @@ body {
   color: #333;
   position: absolute;
   top: 50%;
-  left: 0;
-  transform: translate(0, -50%); /* 初期位置: 左端 */
-  transition: transform 0.5s ease-out; /* スクロールで中央に移動するアニメーション */
+  left: 0; /* 初期位置を左端に配置 */
+  transform: translateY(-50%); /* 垂直方向の中央揃え */
+  transition: all 0.5s ease-out; /* スクロールで中央に移動するアニメーション */
   z-index: 10; /* 画像の上に表示 */
   background-color: white; /* 視認性を確保するための背景 */
   padding: 10px 20px; /* タイトルの周りに余白を追加 */
+}
+
+.works-item.active .works-title {
+  transform: translate(-50%, -50%); /* スクロール時に中央に移動 */
+  left: 50%; /* 左端から中央に */
 }
 
 /* 画像 */
