@@ -1,4 +1,3 @@
-// スクロールして要素が表示されたときにアクションを実行し、表示領域から外れたら元に戻す
 window.addEventListener('scroll', () => {
   const worksItems = document.querySelectorAll('.works-item');
   const triggerBottom = window.innerHeight * 0.8; // 画面下から80%の位置でアニメーションを発動
